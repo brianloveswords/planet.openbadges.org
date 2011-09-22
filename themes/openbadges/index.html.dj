@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>{{ name }}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+  <div id='topbar' class='topbar'>
+    <div class='topbar-inner'>
+      <div class="container">
+        <a class='brand' href='#'>{{ name }}</a>
+        <ul class='nav secondary-nav'>
+          <li class='dropdown'>
+            <a href="#" class='dropdown-toggle'>All Feeds</a>
+            <ul class='dropdown-menu'>
+              {% for channel in Channels %}
+                <li><a href="{{ channel.link }}">{{ channel.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class='content'>
+      {% for item in Items %}
+        <section>
+          {% ifchanged item.new_date %}
+            <h1 class='new-date'>{{ item.new_date }}</h1>
+          {% endifchanged %}
+
+          <article class="entry">
+            {% if item.title %}
+            <div class='page-header item-title'>
+              <h2>
+                <a href="{{ item.link }}">{{ item.title|safe }}</a>
+                <small>by {{ item.channel_name }}</small>
+              </h2>
+            </div>
+            {% endif %}
+
+            <div class='body'>
+              {{ item.content|safe }}
+            </div>
+            
+            <footer>
+              by {{ item.channel_name }} on {{ item.date }} ·
+              <a href="{{ item.link }}">permalink</a>
+            </footer>
+          </article>
+        
+        </section>
+      {% endfor %}
+    </div>
+    <footer class='footer'>
+      <p class="updated">
+        last updated by <a href="http://intertwingly.net/code/venus/">Venus</a> 
+        on {{ date }} on behalf of {{ author_name }}
+      </p>
+    </footer>
+    <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="bootstrap-dropdown.js"></script>
+    <script type="text/javascript">$('#topbar').dropdown()</script>
+  </div>
+</body>
+</html>

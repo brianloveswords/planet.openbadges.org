@@ -1,0 +1,30 @@
+body {
+  padding-top: 60px;
+  background: url('stripes.png') repeat-x fixed;
+}
+.new-date {
+  color: #ddd;
+  text-align: right;
+  text-shadow: -1px -1px 2px #f6f6f6;
+}
+
+.item-title {
+  padding: 5px 10px;
+  background: #eee;
+  text-shadow: 1px 1px 2px #f6f6f6;
+  border-radius: 3px;
+}
+.item-title a {
+  color: #404040;
+}
+
+.item-title small {
+  color: #aaa;
+}
+article .body, article footer {
+  margin-left: 35px;
+}
+article footer {
+  margin-top: 15px;
+  color: #999;
+}

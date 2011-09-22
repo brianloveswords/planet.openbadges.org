@@ -1,0 +1,9 @@
+*.tmplc
+.DS_Store
+cache
+*.pluginc
+*.pyc
+public_html/
+!public_html/.gitkeep
+pscache/
+!pscache/.gitkeep
