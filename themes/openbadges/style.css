@@ -22,9 +22,17 @@ body {
   color: #aaa;
 }
 article .body, article footer {
-  margin-left: 35px;
+  margin: 0 0 0 40px;
+  padding: 10px;
 }
+
 article footer {
   margin-top: 15px;
   color: #999;
+}
+p {
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 16px;
+  color: #505050;
 }
